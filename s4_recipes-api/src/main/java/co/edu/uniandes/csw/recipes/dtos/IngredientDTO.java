@@ -25,6 +25,14 @@ public class IngredientDTO {
     this.name = ingredient.getName();
     this.calories = ingredient.getCalories();
 }
+    
+    public IngredientEntity toEntity() {
+    IngredientEntity entity = new IngredientEntity();
+    entity.setId(this.id);
+    entity.setName(this.name);   
+    entity.setCalories(this.calories);
+    return entity;
+}
 
     /**
      * @return the id
