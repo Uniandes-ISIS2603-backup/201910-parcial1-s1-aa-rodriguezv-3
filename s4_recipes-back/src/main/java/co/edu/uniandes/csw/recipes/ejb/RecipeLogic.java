@@ -24,6 +24,9 @@ public class RecipeLogic {
     }
 
     //TODO crear el método createRecipe
-
+    public RecipeEntity createRecipe()
+    {
+        
+    }
 
 }
