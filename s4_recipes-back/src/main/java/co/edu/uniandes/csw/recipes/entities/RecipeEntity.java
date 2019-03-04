@@ -5,16 +5,23 @@
  */
 package co.edu.uniandes.csw.recipes.entities;
 
+import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author CesarF
  */
 @Entity
-public class RecipeEntity extends BaseEntity {
+public class RecipeEntity extends BaseEntity implements Serializable{
     private String name;
     private String description;
+    
+    @PodamExclude
+    @OneToMany
+    private List<IngredientEntity> ingredients;
     
     public RecipeEntity(){
     

@@ -5,11 +5,15 @@
  */
 package co.edu.uniandes.csw.recipes.entities;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+
 /**
  *
  * @author Angel Rodriguez aa.rodriguezv
  */
-public class IngredientEntity {
+@Entity
+public class IngredientEntity  implements Serializable{
     private Long id;
     
     private String name;
