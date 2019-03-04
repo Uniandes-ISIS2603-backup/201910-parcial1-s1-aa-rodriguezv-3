@@ -33,7 +33,7 @@ public class RecipeLogic {
     public RecipeEntity createRecipe(RecipeEntity entity) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de una receta");
-        if(entity.getName() == null|| entity.getName().isEmpty() || entity.getName().length() <= 30)
+        if(entity.getName() == null|| entity.getName().isEmpty() || entity.getName().length() > 30)
         {
             throw new BusinessLogicException("El nombre de la receta no es valido");
         }
@@ -43,7 +43,7 @@ public class RecipeLogic {
             throw new BusinessLogicException("Ya existe una receta con dicho nombre");
         }
         
-        if(entity.getName() == null|| entity.getName().isEmpty() || entity.getName().length() <= 150)
+        if(entity.getDescription() == null|| entity.getDescription().isEmpty() || entity.getDescription().length() > 150)
         {
             throw new BusinessLogicException("La descripcion de la receta no es valida");
         }
