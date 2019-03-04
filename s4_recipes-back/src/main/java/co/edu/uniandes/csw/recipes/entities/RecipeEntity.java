@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.recipes.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -21,7 +22,7 @@ public class RecipeEntity extends BaseEntity implements Serializable{
     private String description;
     
     @PodamExclude
-    @OneToMany
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<IngredientEntity> ingredients;
     
     public RecipeEntity(){
@@ -53,6 +54,20 @@ public class RecipeEntity extends BaseEntity implements Serializable{
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the ingredients
+     */
+    public List<IngredientEntity> getIngredients() {
+        return ingredients;
+    }
+
+    /**
+     * @param ingredients the ingredients to set
+     */
+    public void setIngredients(List<IngredientEntity> ingredients) {
+        this.ingredients = ingredients;
     }
     
     
